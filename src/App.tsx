@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { HeroSection } from "@/components/home/HeroSection"
 import { CampaignGrid } from "@/components/home/CampaignGrid"
-import { Toaster } from "@/components/ui/toaster"
+import { EnhancedToaster } from "@/components/ui/enhanced-toaster"
 import { blink } from "@/blink/client"
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
           <CampaignGrid />
         </main>
         <Footer />
-        <Toaster />
+        <EnhancedToaster />
       </div>
     </Web3Provider>
   )

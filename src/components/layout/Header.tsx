@@ -1,8 +1,18 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { Search, Menu } from "lucide-react"
+import { Search, Menu, Bell } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useNotification } from "@/hooks/use-notification"
 
 export function Header() {
+  const { success, error, warning, info } = useNotification()
+
+  const testNotifications = () => {
+    setTimeout(() => success("捐赠成功！", "感谢您的慷慨"), 500)
+    setTimeout(() => warning("请注意", "您的钱包余额不足"), 1500)
+    setTimeout(() => error("交易失败", "网络连接超时，请重试"), 2500)
+    setTimeout(() => info("新消息", "有新的募捐项目等待您的关注"), 3500)
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,6 +53,17 @@ export function Header() {
                 我的捐赠
               </a>
             </nav>
+
+            {/* Test Notifications Button */}
+            <Button 
+              variant="outline" 
+              size="icon"
+              onClick={testNotifications}
+              className="hidden sm:flex"
+              title="测试通知"
+            >
+              <Bell className="h-4 w-4" />
+            </Button>
 
             {/* RainbowKit Connect Button */}
             <ConnectButton />
