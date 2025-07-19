@@ -21,6 +21,8 @@ export function Web3Provider({ children }: Web3ProviderProps) {
             borderRadius: 'medium',
             fontStack: 'system',
           })}
+          showRecentTransactions={true}
+          coolMode={true}
         >
           {children}
         </RainbowKitProvider>
